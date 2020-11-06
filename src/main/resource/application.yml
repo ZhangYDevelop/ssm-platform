@@ -1,0 +1,12 @@
+#设置web服务端口及编码
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: utf-8
+
+#设置profiles
+spring:
+  profiles:
+    active: dev
+  application:
+    name: ssm-platform

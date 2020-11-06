@@ -1,0 +1,61 @@
+spring:
+  # 数据源
+  datasource:
+    druid:
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.17.105:3307/phoenix_dev?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong&allowMultiQueries=true
+      username: phoenix
+      password: phoenix
+      initial-size: 5
+      min-idle: 5
+      max-active: 100
+      max-wait: 30000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'ok' from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat
+      aop-patterns: com.hessianhealth.phoenix.pay.*.service.*
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*,/actuator/*'
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: druid
+        login-password: druid
+      filter:
+        stat:
+          log-slow-sql: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+mapper:
+  #mappers: com.hessianhealth.phoenix.pay.core.base.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+
+logging:
+  level:
+    com.zy.platform.mapper: debug #打印sql
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
+
+# ===== swagger3 配置 ===== #
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
