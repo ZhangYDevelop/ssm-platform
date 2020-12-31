@@ -1,4 +1,4 @@
-package com.zy.platform.conf;
+package com.zy.platform.conf.swagger;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

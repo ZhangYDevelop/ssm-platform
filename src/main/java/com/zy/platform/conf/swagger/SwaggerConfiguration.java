@@ -1,4 +1,4 @@
-package com.zy.platform.conf;
+package com.zy.platform.conf.swagger;
 
 import io.swagger.models.auth.In;
 import org.apache.commons.lang3.reflect.FieldUtils;
