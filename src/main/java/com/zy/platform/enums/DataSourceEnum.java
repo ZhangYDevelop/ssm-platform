@@ -2,8 +2,8 @@ package com.zy.platform.enums;
 
 public enum  DataSourceEnum {
 
-    MASTER("master", "phoenix_dev"),
-    SLAVE("slave", "phoenix_dev_slave");
+    MASTER("master", "zy_master"),
+    SLAVE("slave", "zy_slave");
 
     private  String dataSourceType;
     private String dataSourceName;

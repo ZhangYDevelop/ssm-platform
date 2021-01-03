@@ -7,22 +7,9 @@
     -->
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="order_num" property="orderNum" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="state" property="state" jdbcType="CHAR" />
     <result column="package_id" property="packageId" jdbcType="BIGINT" />
     <result column="package_name" property="packageName" jdbcType="VARCHAR" />
-    <result column="price" property="price" jdbcType="DECIMAL" />
-    <result column="sale" property="sale" jdbcType="DECIMAL" />
-    <result column="amount" property="amount" jdbcType="INTEGER" />
-    <result column="total" property="total" jdbcType="DECIMAL" />
-    <result column="user_id" property="userId" jdbcType="BIGINT" />
-    <result column="user_nickname" property="userNickname" jdbcType="VARCHAR" />
-    <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
-    <result column="pay_method" property="payMethod" jdbcType="CHAR" />
-    <result column="pay_amount" property="payAmount" jdbcType="DECIMAL" />
-    <result column="is_cancel" property="isCancel" jdbcType="CHAR" />
-    <result column="cancel_time" property="cancelTime" jdbcType="TIMESTAMP" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
 
 </mapper>

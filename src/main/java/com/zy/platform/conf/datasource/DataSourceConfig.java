@@ -9,9 +9,12 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -21,22 +24,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@MapperScan(value = "com.zy.platform.mapper", sqlSessionTemplateRef = "sqlSessionTemplate", sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfig {
+
 
     /**
      * 主库配置
      */
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.master")
+    @Bean(name = "master")
+    @Primary
+    @ConfigurationProperties(prefix = "spring.datasource.druid.master")
     public DataSource master() {
         return  DruidDataSourceBuilder.create().build();
     }
 
     /**
-     * 主库配置
+     * 从库配置
      */
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.slave")
+    @Bean(name = "slave")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.slave")
     public DataSource slave() {
         return  DruidDataSourceBuilder.create().build();
     }

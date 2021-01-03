@@ -6,17 +6,14 @@ import com.zy.platform.core.page.PageDTO;
 import com.zy.platform.core.page.PageRequest;
 import com.zy.platform.model.Order;
 import com.zy.platform.service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 @Service
 @SuppressWarnings("all")
 public class DemoServiceImpl extends AbstractBaseServiceImpl<Order> implements OrderService {
 
-    @Autowired
-    Mapper mapper;
+
 
     @Override
     public Order getOrderById(Long id) {
