@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@MapperScan(value = "com.zy.platform.mapper", sqlSessionTemplateRef = "sqlSessionTemplate", sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfig {
 
 
